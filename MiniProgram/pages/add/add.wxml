@@ -1,0 +1,70 @@
+<!-- 添加页 - 拍照/OCR + 手动录入 -->
+<view class="page">
+  <!-- 拍照区域 -->
+  <view class="camera-section">
+    <view class="camera-btn" bindtap="takePhoto">
+      <view class="camera-icon">📷</view>
+      <text class="camera-text">{{ocrProcessing ? '识别中...' : '拍照识别保质期'}}</text>
+    </view>
+    <view class="ocr-hint" wx:if="{{ocrProcessing}}">
+      <text>正在识别图片中的保质期信息...</text>
+    </view>
+    <view class="ocr-result" wx:if="{{ocrResult}}">
+      <text class="ocr-raw">识别文本：{{ocrResult.rawText}}</text>
+    </view>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-section">
+    <view class="form-item">
+      <text class="form-label">食品名称 *</text>
+      <input class="form-input" placeholder="输入食品名称" value="{{form.name}}" bindinput="onNameInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">类别</text>
+      <picker mode="selector" range="{{categories}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="form-picker">
+          <text>{{categories[categoryIndex] || '请选择类别'}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">保质期至 *</text>
+      <picker mode="date" value="{{form.expirationDate}}" bindchange="onDateChange">
+        <view class="form-picker">
+          <text>{{form.expirationDate || '请选择日期'}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-row">
+      <view class="form-item form-half">
+        <text class="form-label">数量</text>
+        <input class="form-input" type="number" placeholder="1" value="{{form.quantity}}" bindinput="onQuantityInput" />
+      </view>
+      <view class="form-item form-half">
+        <text class="form-label">单位</text>
+        <picker mode="selector" range="{{units}}" value="{{unitIndex}}" bindchange="onUnitChange">
+          <view class="form-picker">
+            <text>{{units[unitIndex] || '个'}}</text>
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">备注</text>
+      <input class="form-input" placeholder="可选备注" value="{{form.notes}}" bindinput="onNotesInput" />
+    </view>
+
+    <!-- 提交按钮 -->
+    <button class="submit-btn" bindtap="submitForm" disabled="{{submitting}}">
+      {{submitting ? '保存中...' : '保存到冰箱'}}
+    </button>
+  </view>
+</view>

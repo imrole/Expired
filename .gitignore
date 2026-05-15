@@ -1,0 +1,38 @@
+# .NET
+ExpiredAPI/bin/
+ExpiredAPI/obj/
+*.user
+*.suo
+*.cache
+*.log
+.DS_Store
+Thumbs.db
+
+# Publish output
+ExpiredAPI/publish/
+ExpiredAPI/packages/
+
+# NuGet
+ExpiredAPI/nuget.config
+
+# Uploads
+ExpiredAPI/Uploads/*
+!ExpiredAPI/Uploads/.gitkeep
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Runtime
+*.runtimeconfig.dev.json
+
+# Test files
+test_build/
+
+# Workbuddy
+.workbuddy/
+
+# Do NOT ignore README.md

@@ -1,0 +1,6 @@
+@ExpiredAPI_HostAddress = http://localhost:5015
+
+GET {{ExpiredAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

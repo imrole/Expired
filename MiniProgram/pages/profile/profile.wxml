@@ -1,0 +1,57 @@
+<!-- 个人中心 -->
+<view class="page">
+  <!-- 用户信息区域 -->
+  <view class="user-section" wx:if="{{isLoggedIn}}">
+    <view class="avatar">
+      <image src="{{userInfo.avatarUrl || '/images/profile.png'}}" mode="aspectFill"></image>
+    </view>
+    <text class="nickname">{{userInfo.nickName || '用户'}}</text>
+  </view>
+
+  <view class="user-section not-logged" wx:else bindtap="login">
+    <view class="avatar placeholder">
+      <text class="avatar-icon">👤</text>
+    </view>
+    <text class="nickname">点击登录</text>
+    <text class="login-hint">微信授权登录后可管理冰箱食品</text>
+  </view>
+
+  <!-- 统计区域 -->
+  <view class="stats-section" wx:if="{{isLoggedIn}}">
+    <view class="stats-card">
+      <view class="stats-item">
+        <text class="stats-value">{{stats.total}}</text>
+        <text class="stats-label">总计</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-value warning">{{stats.expiringSoon}}</text>
+        <text class="stats-label">即将过期</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-value expired">{{stats.expired}}</text>
+        <text class="stats-label">已过期</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="clearExpired">
+      <text class="menu-icon">🗑️</text>
+      <text class="menu-text">一键清理过期食品</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="about">
+      <text class="menu-icon">ℹ️</text>
+      <text class="menu-text">关于</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section" wx:if="{{isLoggedIn}}">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view>

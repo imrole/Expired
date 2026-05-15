@@ -1,0 +1,55 @@
+<!-- 首页 - 食品卡片列表 -->
+<view class="page">
+  <!-- 顶部统计栏 -->
+  <view class="stats-bar">
+    <view class="stat-item">
+      <text class="stat-num normal">{{stats.normal}}</text>
+      <text class="stat-label">正常</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-num warning">{{stats.expiringSoon}}</text>
+      <text class="stat-label">即将过期</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-num expired">{{stats.expired}}</text>
+      <text class="stat-label">已过期</text>
+    </view>
+  </view>
+
+  <!-- 食品列表 -->
+  <view class="food-list">
+    <view class="food-card" wx:for="{{foodList}}" wx:key="id" data-id="{{item.id}}" bindtap="goToDetail">
+      <view class="card-left">
+        <view class="card-icon category-{{item.category || 'other'}}">
+          <text>{{getCategoryEmoji(item.category)}}</text>
+        </view>
+      </view>
+      <view class="card-body">
+        <view class="card-name">{{item.name}}</view>
+        <view class="card-info">
+          <text class="card-date">保质期至：{{formatDate(item.expirationDate)}}</text>
+          <text class="card-quantity">{{item.quantity}}{{item.unit}}</text>
+        </view>
+        <view class="card-tags">
+          <text class="tag tag-{{item.category}}">{{item.category || '其他'}}</text>
+        </view>
+      </view>
+      <view class="card-right status-{{item.status}}">
+        <text class="days-num">{{item.daysRemaining >= 0 ? item.daysRemaining : '已过'}}</text>
+        <text class="days-label">{{item.daysRemaining >= 0 ? '天后过期' : '期'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{foodList.length === 0 && !loading}}">
+    <text class="empty-icon">📦</text>
+    <text class="empty-text">冰箱空空如也</text>
+    <text class="empty-hint">点击下方「添加」按钮记录食品吧</text>
+  </view>
+
+  <!-- 加载提示 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+</view>
