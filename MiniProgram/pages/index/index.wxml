@@ -20,7 +20,7 @@
   <view class="food-list">
     <view class="food-card" wx:for="{{foodList}}" wx:key="id" data-id="{{item.id}}" bindtap="goToDetail">
       <view class="card-left">
-        <view class="card-icon category-{{item.category || 'other'}}">
+        <view class="card-icon">
           <text>{{getCategoryEmoji(item.category)}}</text>
         </view>
       </view>
@@ -31,7 +31,7 @@
           <text class="card-quantity">{{item.quantity}}{{item.unit}}</text>
         </view>
         <view class="card-tags">
-          <text class="tag tag-{{item.category}}">{{item.category || '其他'}}</text>
+          <text class="tag">{{item.category || '其他'}}</text>
         </view>
       </view>
       <view class="card-right status-{{item.status}}">

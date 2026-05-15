@@ -1,10 +1,10 @@
-/** 首页样式 **/
+/** Home Page **/
 .page {
   padding: 20rpx;
   min-height: 100vh;
 }
 
-/* 统计栏 */
+/* Stats Bar */
 .stats-bar {
   display: flex;
   background: #fff;
@@ -33,7 +33,7 @@
   margin-top: 4rpx;
 }
 
-/* 食品卡片 */
+/* Food Cards */
 .food-list {
   display: flex;
   flex-direction: column;
@@ -59,14 +59,6 @@
   justify-content: center;
   font-size: 36rpx;
 }
-.category-肉类 { background: #ffe0e0; }
-.category-蔬菜 { background: #e0f5e0; }
-.category-水果 { background: #fff3e0; }
-.category-乳制品 { background: #e8f0fe; }
-.category-饮料 { background: #e0f0ff; }
-.category-调味品 { background: #f5e0f5; }
-.category-other { background: #f0f0f0; }
-
 .card-body {
   flex: 1;
   min-width: 0;
@@ -124,7 +116,7 @@
 .status-2 .days-num { color: #ff3b30; }
 .status-2 .days-label { color: #ff3b30; }
 
-/* 空状态 */
+/* Empty State */
 .empty {
   display: flex;
   flex-direction: column;
@@ -145,7 +137,7 @@
   margin-top: 10rpx;
 }
 
-/* 加载 */
+/* Loading */
 .loading {
   text-align: center;
   padding: 40rpx;

@@ -1,10 +1,10 @@
-/** 添加页样式 **/
+/** Add Page **/
 .page {
   padding: 20rpx;
   padding-bottom: 100rpx;
 }
 
-/* 拍照区域 */
+/* Camera Section */
 .camera-section {
   background: #fff;
   border-radius: 16rpx;
@@ -52,7 +52,7 @@
   color: #666;
 }
 
-/* 表单区域 */
+/* Form Section */
 .form-section {
   background: #fff;
   border-radius: 16rpx;
@@ -104,7 +104,7 @@
   flex: 1;
 }
 
-/* 提交按钮 */
+/* Submit Button */
 .submit-btn {
   width: 100%;
   height: 88rpx;
