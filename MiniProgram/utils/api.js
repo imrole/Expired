@@ -1,5 +1,5 @@
 // API 基础配置
-const API_BASE_URL = 'http://localhost:5211'; // 修改为你实际的API地址
+const API_BASE_URL = 'http://120.26.220.46:5000'; // 后端 API 地址（部署后修改）
 const TOKEN_KEY = 'token';
 
 // 通用请求封装
